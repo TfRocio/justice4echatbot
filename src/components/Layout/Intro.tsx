@@ -12,7 +12,7 @@ const Intro: React.FC = () => {
     <div className='w-[100%] absolute bottom-[7rem] grid grid-cols-2 max-[650px]:h-auto
     grid-rows-2 gap-2 max-[650px]:flex max-[650px]:flex-col'>
       <DescriptionCard title='Chatbot de Tránsito - Ciudad de México' description='¡¡Hola! Soy 
-      un asistente virtual llamado Nachito, que sabe todo sobre el Reglamento de Tránsito de la 
+      un asistente virtual llamado Pepe, que sabe todo sobre el Reglamento de Tránsito de la 
       Ciudad de México. ¡Hazme una pregunta!' />
       <InfoCard question='¿Cuál es la multa por estacionarse en un lugar prohibido?'
       answer='La multa por estacionarse en un lugar prohibido puede variar, pero generalmente 
