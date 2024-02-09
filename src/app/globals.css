@@ -21,6 +21,27 @@ body {
   text-align: center;
 }
 
+* { 
+  scrollbar-width: none; 
+} 
+
+*::-webkit-scrollbar { 
+  display: none !important; /* Adjust the width as needed */ 
+} 
+
+*::-webkit-scrollbar-thumb { background-color: transparent; 
+  /* Make the thumb (the moving part) transparent */ 
+} 
+
+*::-moz-scrollbar { display: none; 
+  /* Adjust the width as needed */ 
+} 
+
+*::-moz-scrollbar-thumb { 
+  background-color: transparent; 
+  /* Make the thumb (the moving part) transparent */ 
+}
+
 .bot-message {
   padding: 1rem;
   background-color: #C966A5;
@@ -66,27 +87,8 @@ input{
   outline: none;
 }
 
-#Scrolling
-{ 
-  scrollbar-width: none; 
-} 
 
-*::-webkit-scrollbar { 
-  display: none !important; /* Adjust the width as needed */ 
-} 
 
-*::-webkit-scrollbar-thumb { background-color: transparent; 
-  /* Make the thumb (the moving part) transparent */ 
-} 
-
-*::-moz-scrollbar { display: none; 
-  /* Adjust the width as needed */ 
-} 
-
-*::-moz-scrollbar-thumb { 
-  background-color: transparent; 
-  /* Make the thumb (the moving part) transparent */ 
-}
 
 /* #140925, #170a2b */
 
