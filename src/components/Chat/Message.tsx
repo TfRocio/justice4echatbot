@@ -10,3 +10,4 @@ const Message: React.FC<MessageData> = ({ text, sender }) => (
 
 export default Message
 
+

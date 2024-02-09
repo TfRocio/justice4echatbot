@@ -11,13 +11,14 @@ interface DescriptionCardProps {
 const DescriptionCard: React.FC<DescriptionCardProps> = ({title, description}) => {
   return (
     <div className='col-span-2 rounded-xl shadow-md bg-[#FCDDDF] p-4 flex flex-row 
-    justify-between gap-8 max-[650px]:col-span-1'>
-      <Image src={descriptionIcon} alt='Description Icon' className='w-24 h-24 object-cover' />
+    justify-between gap-8 max-[650px]:flex max-[650px]:flex-col'>
+      <Image src={descriptionIcon} alt='Description Icon' className='w-24 h-24 object-cover
+      max-[650px]:hidden' />
       <div className='flex flex-col gap-2 text-left h-[100%] justify-center'>
-        <h4 className='text-md text-[#000000] font-bold'>
+        <h4 className='text-md text-[#000000] font-bold max-[650px]:text-sm'>
           {title}
         </h4>
-        <p className='text-[#696969] text-sm font-medium'>
+        <p className='text-[#696969] text-sm font-medium max-[650px]:text-xs'>
           {description}
         </p>
       </div>

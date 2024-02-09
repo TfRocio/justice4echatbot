@@ -8,12 +8,12 @@ const Header: React.FC = () => {
   const { isVisible } = useContext(Context)
 
   return (
-    <header className='w-[100%] flex flex-col items-center absolute bottom-[28rem]
-    gap-5'>
+    <header className='w-[100%] flex flex-col items-center absolute gap-5 
+    bottom-[29.5rem]'>
       <Image src={ai} alt='AI assistant' className='w-40 h-40 object-cover
       rounded-full border-4 border-white shadow-md' />
       {isVisible ? <h1 className='text-[#E93A90] text-2xl font-bold
-      absolute -bottom-12'>
+      absolute -bottom-12 max-[650px]:text-xl'>
         ¿Cómo puedo ayudarte hoy?
       </h1> : <></>}
     </header>

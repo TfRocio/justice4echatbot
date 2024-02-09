@@ -1,9 +1,10 @@
 import React from 'react'
 
 const Footer = () => (
-  <footer className='absolute bottom-4 flex flex-col items-center w-[100%]'>
+  <footer className='absolute bottom-4 flex flex-col items-center w-[100%]
+  max-[640px]:bottom-2'>
     <p className='text-xs font-medium text-[#E93A90]'>
-      Website by Rodrigo Armenta, Teresita Juan and Rocío Torres,  ↩  
+      Website by Rodrigo Armenta, Teresita Juan and Rocío Torres ↩  
     </p>
   </footer>
 )

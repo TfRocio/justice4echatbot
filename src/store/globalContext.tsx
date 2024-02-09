@@ -2,6 +2,7 @@
 
 import React, { createContext, ReactNode, useState,
   useEffect  } from 'react'
+import AiService from '@/components/AI/AiService'
 import { MessageData } from '@/types'
 
 export const Context = createContext<any>('')
@@ -14,8 +15,11 @@ export const ContextProvider: React.FC<Props> = ({children}) => {
 
   const [messages, setMessages] = useState<MessageData[]>([])
   const [isVisible, setIsVisible] = useState<boolean>(true)
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [dots, setDots] = useState(0)
 
   const handleSendMessage = (userMessage: string) => {
+    setIsLoading(true)
     const sendMessage = async () => {
       try {
         const response = await fetch(
@@ -34,10 +38,19 @@ export const ContextProvider: React.FC<Props> = ({children}) => {
           { text: responseData.user_input, sender: 'user' },
           { text: responseData.answer, sender: 'bot' },
         ])
+
+        const updatedMessages = [
+          ...messages,
+          { text: responseData.user_input, sender: 'user' },
+          { text: responseData.answer, sender: 'bot' },
+        ]
+        localStorage.setItem('chatHistory', JSON.stringify(updatedMessages))
   
         setIsVisible(false)
       } catch (error: any) {
         console.error('Error:', error.message)
+      } finally {
+        setIsLoading(false)
       }
     }
   
@@ -46,32 +59,39 @@ export const ContextProvider: React.FC<Props> = ({children}) => {
 
   const fetchInitialChatHistory = async () => {  
     try {
-
-      const initialHistoryResponse = await fetch('https://your-backend-url/initial-chat-history-endpoint')
-
-      if (!initialHistoryResponse.ok) {
-        throw new Error('Failed to fetch initial chat history from the server')
+      const storedChatHistory = localStorage.getItem('chatHistory')
+  
+      if (storedChatHistory) {
+        const initialHistoryData = JSON.parse(storedChatHistory)
+        setMessages(initialHistoryData)
+        setIsVisible(false)
       }
-
-      const initialHistoryData = await initialHistoryResponse.json()
-
-      setMessages(initialHistoryData)
-
     } catch (error: any) {
       console.error('Error:', error.message)
     }
   }
 
+  const clearLocalStorage = () => {
+    localStorage.clear()
+    setIsVisible(false)
+    console.log('Local storage cleared.')
+  }
+
   useEffect(() => { 
 
-    // fetchInitialChatHistory()
+    const interval = setInterval(() => {
+      setDots((prevDots) => (prevDots < 3 ? prevDots + 1 : 0))
+    }, 500)
+
+    return () => clearInterval(interval)
 
   }, [])
 
 
   return (
     <Context.Provider 
-      value={{ messages, isVisible, handleSendMessage }}>
+      value={{ messages, isVisible, handleSendMessage,
+      isLoading, dots, fetchInitialChatHistory, clearLocalStorage }}>
       {children}
     </Context.Provider>
     )
