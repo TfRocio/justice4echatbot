@@ -2,8 +2,6 @@
 
 import React, { createContext, ReactNode, useState,
   useEffect  } from 'react'
-
-import AiService from '@/components/AI/AiService'
 import { MessageData } from '@/types'
 
 export const Context = createContext<any>('')
