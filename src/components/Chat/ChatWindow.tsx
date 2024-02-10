@@ -25,8 +25,8 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ messages }) => {
   }, [context?.messages])
 
   return (
-    <div className='w-[100%] absolute bottom-[7rem] overflow-y-scroll 
-    h-[-webkit-fill-available] flex flex-col justify-end ' ref={scrollContainerRef}>
+    <div className='w-[100%] absolute bottom-[7rem] overflow-y-scroll
+    h-[-webkit-fill-available] mt-8' ref={scrollContainerRef}>
       {messages.map((message, index) => (
         <Message key={index} text={message.text} sender={message.sender} />
       ))}

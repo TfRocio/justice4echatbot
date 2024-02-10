@@ -49,7 +49,8 @@ const Input: React.FC<InputProps> = ({ onSendMessage }) => {
         placeholder="Ingresa tu pregunta aquí..."
         className="w-[92%] left-0 text-lg bg-white
         p-[.75rem] pl-4 rounded-full shadow-md h-[52px]
-        max-[1000px]:w-[80%] max-[650px]:text-md"
+        max-[1000px]:w-[80%] max-[650px]:text-sm
+        max-[640px]:text-[#E93A90]"
       />
       <button onClick={handleSendClick} className="!w-[50px]
       !h-[50px] text-white rounded-full

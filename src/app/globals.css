@@ -13,7 +13,6 @@ body {
   background-repeat: no-repeat;
   height: 100vh;
   width: 100%;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,30 +20,34 @@ body {
   text-align: center;
 }
 
-* { 
-  scrollbar-width: none; 
-} 
+* {
+  scrollbar-width: none;
+}
 
-*::-webkit-scrollbar { 
-  display: none !important; /* Adjust the width as needed */ 
-} 
+*::-webkit-scrollbar {
+  display: none !important; 
+}
 
-*::-webkit-scrollbar-thumb { background-color: transparent; 
-  /* Make the thumb (the moving part) transparent */ 
-} 
+*::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
 
-*::-moz-scrollbar { display: none; 
-  /* Adjust the width as needed */ 
-} 
+*::-moz-scrollbar {
+  display: none;
+}
 
-*::-moz-scrollbar-thumb { 
+*::-moz-scrollbar-thumb {
   background-color: transparent; 
-  /* Make the thumb (the moving part) transparent */ 
+}
+
+main {
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
 }
 
 .bot-message {
   padding: 1rem;
-  background-color: #C966A5;
+  background-color: #F491B0;
   color: white;
   max-width: 30rem;
   position: relative;
@@ -63,7 +66,7 @@ body {
 .user-message {
   padding: 1rem;
   background-color: white;
-  color: #C966A5;
+  color: #F491B0;
   max-width: 30rem;
   position: relative;
   right: 0;
@@ -87,8 +90,8 @@ input{
   outline: none;
 }
 
-
-
-
-/* #140925, #170a2b */
-
+@media screen and (max-width: 640px) {
+  input::placeholder {
+    color: #F491B0;
+  }
+}

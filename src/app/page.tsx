@@ -17,8 +17,8 @@ const Home: NextPage = () => {
 
   return (
     <div>
-      <main className='w-[50rem] max-[1000px]:w-[80vw] relative h-[100vh]'>
-        {/* <Navbar /> */}
+      <main className='w-[50rem] max-[1000px]:w-[80vw] relative
+      max-[640px]:bottom-2'>
         <Header />
         {isVisible ? <Intro /> :
         <ChatWindow messages={messages} />}
