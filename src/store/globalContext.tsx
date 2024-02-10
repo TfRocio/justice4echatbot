@@ -16,9 +16,11 @@ export const ContextProvider: React.FC<Props> = ({children}) => {
   const [isVisible, setIsVisible] = useState<boolean>(true)
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [dots, setDots] = useState(0)
-  let vh = window.innerHeight * 0.01
 
-  document.documentElement.style.setProperty('--vh', `${vh}px`)
+  if (typeof window !== 'undefined') {
+    let vh = window.innerHeight * 0.01 
+    document.documentElement.style.setProperty('--vh', `${vh}px`)
+  }
 
   const handleSendMessage = (userMessage: string) => {
     setIsLoading(true)
