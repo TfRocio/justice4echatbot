@@ -27,7 +27,7 @@ export const ContextProvider: React.FC<Props> = ({children}) => {
     const sendMessage = async () => {
       try {
         const response = await fetch(
-          `https://chatbotest-2bwmhayk7q-ew.a.run.app/responseChatbot?user_input=${encodeURIComponent(userMessage)}`
+          `https://chatbothatbot-2bwmhayk7q-ew.a.run.app/responseChatbot?user_input=${encodeURIComponent(userMessage)}`
           )
         
         if (!response.ok) {
